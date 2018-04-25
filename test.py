@@ -7,4 +7,4 @@ for i in range(100):
     print(i)
     result = rle1 - rle2
 
-    print(len(result.values))
+    assert len(result.values) == 7
