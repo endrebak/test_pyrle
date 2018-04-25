@@ -1598,10 +1598,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 static CYTHON_INLINE PyObject *__pyx_memview_get_long(const char *itemp);
 static CYTHON_INLINE int __pyx_memview_set_long(const char *itemp, PyObject *obj);
 
-/* MemviewDtypeToObject.proto */
-static CYTHON_INLINE PyObject *__pyx_memview_get_double(const char *itemp);
-static CYTHON_INLINE int __pyx_memview_set_double(const char *itemp, PyObject *obj);
-
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
 
@@ -3543,7 +3539,7 @@ static PyObject *__pyx_pf_3rle_3Rle_8__repr__(CYTHON_UNUSED PyObject *__pyx_self
   return __pyx_r;
 }
 
-/* "rle.pyx":52
+/* "rle.pyx":50
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef sub_rles(long [::1] runs1, double [::1] values1, long [::1] runs2, double [::1] values2):             # <<<<<<<<<<<<<<
@@ -3601,9 +3597,9 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   Py_ssize_t __pyx_t_29;
   Py_ssize_t __pyx_t_30;
   Py_ssize_t __pyx_t_31;
-  int __pyx_t_32;
+  Py_ssize_t __pyx_t_32;
   int __pyx_t_33;
-  Py_ssize_t __pyx_t_34;
+  int __pyx_t_34;
   Py_ssize_t __pyx_t_35;
   Py_ssize_t __pyx_t_36;
   Py_ssize_t __pyx_t_37;
@@ -3618,9 +3614,10 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   Py_ssize_t __pyx_t_46;
   Py_ssize_t __pyx_t_47;
   Py_ssize_t __pyx_t_48;
+  Py_ssize_t __pyx_t_49;
   __Pyx_RefNannySetupContext("sub_rles", 0);
 
-  /* "rle.pyx":54
+  /* "rle.pyx":52
  * cpdef sub_rles(long [::1] runs1, double [::1] values1, long [::1] runs2, double [::1] values2):
  * 
  *     cdef int x1 = 0             # <<<<<<<<<<<<<<
@@ -3629,7 +3626,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
   __pyx_v_x1 = 0;
 
-  /* "rle.pyx":55
+  /* "rle.pyx":53
  * 
  *     cdef int x1 = 0
  *     cdef int x2 = 0             # <<<<<<<<<<<<<<
@@ -3638,7 +3635,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
   __pyx_v_x2 = 0;
 
-  /* "rle.pyx":56
+  /* "rle.pyx":54
  *     cdef int x1 = 0
  *     cdef int x2 = 0
  *     cdef int xn = 0             # <<<<<<<<<<<<<<
@@ -3647,7 +3644,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
   __pyx_v_xn = 0;
 
-  /* "rle.pyx":57
+  /* "rle.pyx":55
  *     cdef int x2 = 0
  *     cdef int xn = 0
  *     cdef int nr = 0             # <<<<<<<<<<<<<<
@@ -3656,7 +3653,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
   __pyx_v_nr = 0;
 
-  /* "rle.pyx":58
+  /* "rle.pyx":56
  *     cdef int xn = 0
  *     cdef int nr = 0
  *     cdef double nv = 0             # <<<<<<<<<<<<<<
@@ -3665,7 +3662,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
   __pyx_v_nv = 0.0;
 
-  /* "rle.pyx":59
+  /* "rle.pyx":57
  *     cdef int nr = 0
  *     cdef double nv = 0
  *     cdef double diff = 0             # <<<<<<<<<<<<<<
@@ -3674,7 +3671,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
   __pyx_v_diff = 0.0;
 
-  /* "rle.pyx":60
+  /* "rle.pyx":58
  *     cdef double nv = 0
  *     cdef double diff = 0
  *     cdef int l1 = len(runs1)             # <<<<<<<<<<<<<<
@@ -3684,7 +3681,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_runs1); 
   __pyx_v_l1 = __pyx_t_1;
 
-  /* "rle.pyx":61
+  /* "rle.pyx":59
  *     cdef double diff = 0
  *     cdef int l1 = len(runs1)
  *     cdef int l2 = len(runs2)             # <<<<<<<<<<<<<<
@@ -3694,7 +3691,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_runs2); 
   __pyx_v_l2 = __pyx_t_1;
 
-  /* "rle.pyx":62
+  /* "rle.pyx":60
  *     cdef int l1 = len(runs1)
  *     cdef int l2 = len(runs2)
  *     cdef long r1 = runs1[x1]             # <<<<<<<<<<<<<<
@@ -3704,7 +3701,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   __pyx_t_2 = __pyx_v_x1;
   __pyx_v_r1 = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs1.data) + __pyx_t_2)) )));
 
-  /* "rle.pyx":63
+  /* "rle.pyx":61
  *     cdef int l2 = len(runs2)
  *     cdef long r1 = runs1[x1]
  *     cdef long r2 = runs2[x2]             # <<<<<<<<<<<<<<
@@ -3714,37 +3711,37 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   __pyx_t_3 = __pyx_v_x2;
   __pyx_v_r2 = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs2.data) + __pyx_t_3)) )));
 
-  /* "rle.pyx":64
+  /* "rle.pyx":62
  *     cdef long r1 = runs1[x1]
  *     cdef long r2 = runs2[x2]
  *     nrs_arr = np.zeros(len(runs1) + len(runs2), dtype=np.long)             # <<<<<<<<<<<<<<
  *     nvs_arr = np.zeros(len(runs1) + len(runs2), dtype=np.double)
  * 
  */
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_runs1); 
   __pyx_t_6 = __Pyx_MemoryView_Len(__pyx_v_runs2); 
-  __pyx_t_4 = PyInt_FromSsize_t((__pyx_t_1 + __pyx_t_6)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_4 = PyInt_FromSsize_t((__pyx_t_1 + __pyx_t_6)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_long); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_long); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_9) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, __pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -3752,37 +3749,37 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   __pyx_v_nrs_arr = __pyx_t_9;
   __pyx_t_9 = 0;
 
-  /* "rle.pyx":65
+  /* "rle.pyx":63
  *     cdef long r2 = runs2[x2]
  *     nrs_arr = np.zeros(len(runs1) + len(runs2), dtype=np.long)
  *     nvs_arr = np.zeros(len(runs1) + len(runs2), dtype=np.double)             # <<<<<<<<<<<<<<
  * 
  *     cdef long[::1] nrs
  */
-  __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_t_6 = __Pyx_MemoryView_Len(__pyx_v_runs1); 
   __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_runs2); 
-  __pyx_t_9 = PyInt_FromSsize_t((__pyx_t_6 + __pyx_t_1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_9 = PyInt_FromSsize_t((__pyx_t_6 + __pyx_t_1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_GIVEREF(__pyx_t_9);
   PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_9);
   __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_double); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_double); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_dtype, __pyx_t_8) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_dtype, __pyx_t_8) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -3790,7 +3787,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   __pyx_v_nvs_arr = __pyx_t_8;
   __pyx_t_8 = 0;
 
-  /* "rle.pyx":70
+  /* "rle.pyx":68
  *     cdef double[::1] nvs
  * 
  *     nrs = nrs_arr             # <<<<<<<<<<<<<<
@@ -3798,12 +3795,12 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  * 
  */
   __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_long(__pyx_v_nrs_arr);
-  if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 70, __pyx_L1_error)
+  if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 68, __pyx_L1_error)
   __pyx_v_nrs = __pyx_t_10;
   __pyx_t_10.memview = NULL;
   __pyx_t_10.data = NULL;
 
-  /* "rle.pyx":71
+  /* "rle.pyx":69
  * 
  *     nrs = nrs_arr
  *     nvs = nvs_arr             # <<<<<<<<<<<<<<
@@ -3811,12 +3808,12 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  *     while(x1 < l1 and x2 < l2):
  */
   __pyx_t_11 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_v_nvs_arr);
-  if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 69, __pyx_L1_error)
   __pyx_v_nvs = __pyx_t_11;
   __pyx_t_11.memview = NULL;
   __pyx_t_11.data = NULL;
 
-  /* "rle.pyx":73
+  /* "rle.pyx":71
  *     nvs = nvs_arr
  * 
  *     while(x1 < l1 and x2 < l2):             # <<<<<<<<<<<<<<
@@ -3835,7 +3832,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     __pyx_L5_bool_binop_done:;
     if (!__pyx_t_12) break;
 
-    /* "rle.pyx":75
+    /* "rle.pyx":73
  *     while(x1 < l1 and x2 < l2):
  * 
  *         diff = r1 - r2             # <<<<<<<<<<<<<<
@@ -3844,7 +3841,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
     __pyx_v_diff = (__pyx_v_r1 - __pyx_v_r2);
 
-    /* "rle.pyx":76
+    /* "rle.pyx":74
  * 
  *         diff = r1 - r2
  *         nv = values1[x1] - values2[x2]             # <<<<<<<<<<<<<<
@@ -3855,7 +3852,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     __pyx_t_15 = __pyx_v_x2;
     __pyx_v_nv = ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values1.data) + __pyx_t_14)) ))) - (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values2.data) + __pyx_t_15)) ))));
 
-    /* "rle.pyx":77
+    /* "rle.pyx":75
  *         diff = r1 - r2
  *         nv = values1[x1] - values2[x2]
  *         if diff < 0:             # <<<<<<<<<<<<<<
@@ -3865,7 +3862,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     __pyx_t_12 = ((__pyx_v_diff < 0.0) != 0);
     if (__pyx_t_12) {
 
-      /* "rle.pyx":78
+      /* "rle.pyx":76
  *         nv = values1[x1] - values2[x2]
  *         if diff < 0:
  *             nr = r1             # <<<<<<<<<<<<<<
@@ -3874,7 +3871,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_nr = __pyx_v_r1;
 
-      /* "rle.pyx":79
+      /* "rle.pyx":77
  *         if diff < 0:
  *             nr = r1
  *             r2 = r2 - r1             # <<<<<<<<<<<<<<
@@ -3883,7 +3880,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_r2 = (__pyx_v_r2 - __pyx_v_r1);
 
-      /* "rle.pyx":80
+      /* "rle.pyx":78
  *             nr = r1
  *             r2 = r2 - r1
  *             x1 += 1             # <<<<<<<<<<<<<<
@@ -3892,7 +3889,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_x1 = (__pyx_v_x1 + 1);
 
-      /* "rle.pyx":81
+      /* "rle.pyx":79
  *             r2 = r2 - r1
  *             x1 += 1
  *             if x1 < l1:             # <<<<<<<<<<<<<<
@@ -3902,7 +3899,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       __pyx_t_12 = ((__pyx_v_x1 < __pyx_v_l1) != 0);
       if (__pyx_t_12) {
 
-        /* "rle.pyx":82
+        /* "rle.pyx":80
  *             x1 += 1
  *             if x1 < l1:
  *                 r1 = runs1[x1]             # <<<<<<<<<<<<<<
@@ -3912,7 +3909,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
         __pyx_t_16 = __pyx_v_x1;
         __pyx_v_r1 = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs1.data) + __pyx_t_16)) )));
 
-        /* "rle.pyx":81
+        /* "rle.pyx":79
  *             r2 = r2 - r1
  *             x1 += 1
  *             if x1 < l1:             # <<<<<<<<<<<<<<
@@ -3921,7 +3918,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       }
 
-      /* "rle.pyx":77
+      /* "rle.pyx":75
  *         diff = r1 - r2
  *         nv = values1[x1] - values2[x2]
  *         if diff < 0:             # <<<<<<<<<<<<<<
@@ -3931,7 +3928,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       goto __pyx_L7;
     }
 
-    /* "rle.pyx":83
+    /* "rle.pyx":81
  *             if x1 < l1:
  *                 r1 = runs1[x1]
  *         elif diff > 0:             # <<<<<<<<<<<<<<
@@ -3941,7 +3938,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     __pyx_t_12 = ((__pyx_v_diff > 0.0) != 0);
     if (__pyx_t_12) {
 
-      /* "rle.pyx":84
+      /* "rle.pyx":82
  *                 r1 = runs1[x1]
  *         elif diff > 0:
  *             nr = r2             # <<<<<<<<<<<<<<
@@ -3950,7 +3947,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_nr = __pyx_v_r2;
 
-      /* "rle.pyx":85
+      /* "rle.pyx":83
  *         elif diff > 0:
  *             nr = r2
  *             r1 = r1 - r2             # <<<<<<<<<<<<<<
@@ -3959,7 +3956,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_r1 = (__pyx_v_r1 - __pyx_v_r2);
 
-      /* "rle.pyx":86
+      /* "rle.pyx":84
  *             nr = r2
  *             r1 = r1 - r2
  *             x2 += 1             # <<<<<<<<<<<<<<
@@ -3968,7 +3965,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_x2 = (__pyx_v_x2 + 1);
 
-      /* "rle.pyx":87
+      /* "rle.pyx":85
  *             r1 = r1 - r2
  *             x2 += 1
  *             if x2 < l2:             # <<<<<<<<<<<<<<
@@ -3978,7 +3975,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       __pyx_t_12 = ((__pyx_v_x2 < __pyx_v_l2) != 0);
       if (__pyx_t_12) {
 
-        /* "rle.pyx":88
+        /* "rle.pyx":86
  *             x2 += 1
  *             if x2 < l2:
  *                 r2 = runs2[x2]             # <<<<<<<<<<<<<<
@@ -3988,7 +3985,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
         __pyx_t_17 = __pyx_v_x2;
         __pyx_v_r2 = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs2.data) + __pyx_t_17)) )));
 
-        /* "rle.pyx":87
+        /* "rle.pyx":85
  *             r1 = r1 - r2
  *             x2 += 1
  *             if x2 < l2:             # <<<<<<<<<<<<<<
@@ -3997,7 +3994,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       }
 
-      /* "rle.pyx":83
+      /* "rle.pyx":81
  *             if x1 < l1:
  *                 r1 = runs1[x1]
  *         elif diff > 0:             # <<<<<<<<<<<<<<
@@ -4007,7 +4004,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       goto __pyx_L7;
     }
 
-    /* "rle.pyx":90
+    /* "rle.pyx":88
  *                 r2 = runs2[x2]
  *         else:
  *             nr = r2             # <<<<<<<<<<<<<<
@@ -4017,7 +4014,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     /*else*/ {
       __pyx_v_nr = __pyx_v_r2;
 
-      /* "rle.pyx":91
+      /* "rle.pyx":89
  *         else:
  *             nr = r2
  *             x1 += 1             # <<<<<<<<<<<<<<
@@ -4026,7 +4023,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_x1 = (__pyx_v_x1 + 1);
 
-      /* "rle.pyx":92
+      /* "rle.pyx":90
  *             nr = r2
  *             x1 += 1
  *             x2 += 1             # <<<<<<<<<<<<<<
@@ -4035,7 +4032,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_x2 = (__pyx_v_x2 + 1);
 
-      /* "rle.pyx":93
+      /* "rle.pyx":91
  *             x1 += 1
  *             x2 += 1
  *             if x1 < l1:             # <<<<<<<<<<<<<<
@@ -4045,7 +4042,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       __pyx_t_12 = ((__pyx_v_x1 < __pyx_v_l1) != 0);
       if (__pyx_t_12) {
 
-        /* "rle.pyx":94
+        /* "rle.pyx":92
  *             x2 += 1
  *             if x1 < l1:
  *                 r1 = runs1[x1]             # <<<<<<<<<<<<<<
@@ -4055,7 +4052,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
         __pyx_t_18 = __pyx_v_x1;
         __pyx_v_r1 = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs1.data) + __pyx_t_18)) )));
 
-        /* "rle.pyx":93
+        /* "rle.pyx":91
  *             x1 += 1
  *             x2 += 1
  *             if x1 < l1:             # <<<<<<<<<<<<<<
@@ -4064,7 +4061,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       }
 
-      /* "rle.pyx":95
+      /* "rle.pyx":93
  *             if x1 < l1:
  *                 r1 = runs1[x1]
  *             if x2 < l2:             # <<<<<<<<<<<<<<
@@ -4074,7 +4071,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       __pyx_t_12 = ((__pyx_v_x2 < __pyx_v_l2) != 0);
       if (__pyx_t_12) {
 
-        /* "rle.pyx":96
+        /* "rle.pyx":94
  *                 r1 = runs1[x1]
  *             if x2 < l2:
  *                 r2 = runs2[x2]             # <<<<<<<<<<<<<<
@@ -4084,7 +4081,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
         __pyx_t_19 = __pyx_v_x2;
         __pyx_v_r2 = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs2.data) + __pyx_t_19)) )));
 
-        /* "rle.pyx":95
+        /* "rle.pyx":93
  *             if x1 < l1:
  *                 r1 = runs1[x1]
  *             if x2 < l2:             # <<<<<<<<<<<<<<
@@ -4095,7 +4092,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     }
     __pyx_L7:;
 
-    /* "rle.pyx":99
+    /* "rle.pyx":97
  * 
  *         # if the new value is the same as the old, merge the runs
  *         if nv == nvs[xn - 1]:             # <<<<<<<<<<<<<<
@@ -4106,17 +4103,17 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     __pyx_t_12 = ((__pyx_v_nv == (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_20)) )))) != 0);
     if (__pyx_t_12) {
 
-      /* "rle.pyx":100
+      /* "rle.pyx":98
  *         # if the new value is the same as the old, merge the runs
  *         if nv == nvs[xn - 1]:
  *             nrs[xn - 1] += nr             # <<<<<<<<<<<<<<
  *         else:
- *             if xn < len(nvs):
+ *             if xn < len(nvs_arr):
  */
       __pyx_t_21 = (__pyx_v_xn - 1);
       *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_21)) )) += __pyx_v_nr;
 
-      /* "rle.pyx":99
+      /* "rle.pyx":97
  * 
  *         # if the new value is the same as the old, merge the runs
  *         if nv == nvs[xn - 1]:             # <<<<<<<<<<<<<<
@@ -4126,39 +4123,39 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       goto __pyx_L12;
     }
 
-    /* "rle.pyx":102
+    /* "rle.pyx":100
  *             nrs[xn - 1] += nr
  *         else:
- *             if xn < len(nvs):             # <<<<<<<<<<<<<<
+ *             if xn < len(nvs_arr):             # <<<<<<<<<<<<<<
  *                 nrs[xn] = nr
  *                 nvs[xn] = nv
  */
     /*else*/ {
-      __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_nvs); 
-      __pyx_t_12 = ((__pyx_v_xn < __pyx_t_1) != 0);
+      __pyx_t_22 = PyObject_Length(__pyx_v_nvs_arr); if (unlikely(__pyx_t_22 == ((Py_ssize_t)-1))) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_12 = ((__pyx_v_xn < __pyx_t_22) != 0);
       if (__pyx_t_12) {
 
-        /* "rle.pyx":103
+        /* "rle.pyx":101
  *         else:
- *             if xn < len(nvs):
+ *             if xn < len(nvs_arr):
  *                 nrs[xn] = nr             # <<<<<<<<<<<<<<
  *                 nvs[xn] = nv
  *                 xn += 1
  */
-        __pyx_t_22 = __pyx_v_xn;
-        *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_22)) )) = __pyx_v_nr;
+        __pyx_t_23 = __pyx_v_xn;
+        *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_23)) )) = __pyx_v_nr;
 
-        /* "rle.pyx":104
- *             if xn < len(nvs):
+        /* "rle.pyx":102
+ *             if xn < len(nvs_arr):
  *                 nrs[xn] = nr
  *                 nvs[xn] = nv             # <<<<<<<<<<<<<<
  *                 xn += 1
  *             # if we have no space left in our old array, double the size
  */
-        __pyx_t_23 = __pyx_v_xn;
-        *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_23)) )) = __pyx_v_nv;
+        __pyx_t_24 = __pyx_v_xn;
+        *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_24)) )) = __pyx_v_nv;
 
-        /* "rle.pyx":105
+        /* "rle.pyx":103
  *                 nrs[xn] = nr
  *                 nvs[xn] = nv
  *                 xn += 1             # <<<<<<<<<<<<<<
@@ -4167,30 +4164,30 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
         __pyx_v_xn = (__pyx_v_xn + 1);
 
-        /* "rle.pyx":102
+        /* "rle.pyx":100
  *             nrs[xn - 1] += nr
  *         else:
- *             if xn < len(nvs):             # <<<<<<<<<<<<<<
+ *             if xn < len(nvs_arr):             # <<<<<<<<<<<<<<
  *                 nrs[xn] = nr
  *                 nvs[xn] = nv
  */
         goto __pyx_L13;
       }
 
-      /* "rle.pyx":108
+      /* "rle.pyx":106
  *             # if we have no space left in our old array, double the size
  *             else:
- *                 nrs_arr.resize(1, len(nrs) * 2, refcheck=False)             # <<<<<<<<<<<<<<
- *                 nvs_arr.resize(1, len(nvs) * 2, refcheck=False)
+ *                 nrs_arr.resize(1, len(nrs_arr) * 2, refcheck=False)             # <<<<<<<<<<<<<<
+ *                 nvs_arr.resize(1, len(nvs_arr) * 2, refcheck=False)
  *                 nrs = nrs_arr
  */
       /*else*/ {
-        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_nrs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 108, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_nrs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 106, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_nrs); 
-        __pyx_t_9 = PyInt_FromSsize_t((__pyx_t_1 * 2)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 108, __pyx_L1_error)
+        __pyx_t_22 = PyObject_Length(__pyx_v_nrs_arr); if (unlikely(__pyx_t_22 == ((Py_ssize_t)-1))) __PYX_ERR(0, 106, __pyx_L1_error)
+        __pyx_t_9 = PyInt_FromSsize_t((__pyx_t_22 * 2)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 106, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 108, __pyx_L1_error)
+        __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 106, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_INCREF(__pyx_int_1);
         __Pyx_GIVEREF(__pyx_int_1);
@@ -4198,29 +4195,29 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
         __Pyx_GIVEREF(__pyx_t_9);
         PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_9);
         __pyx_t_9 = 0;
-        __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 108, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 106, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 108, __pyx_L1_error)
+        if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "rle.pyx":109
+        /* "rle.pyx":107
  *             else:
- *                 nrs_arr.resize(1, len(nrs) * 2, refcheck=False)
- *                 nvs_arr.resize(1, len(nvs) * 2, refcheck=False)             # <<<<<<<<<<<<<<
+ *                 nrs_arr.resize(1, len(nrs_arr) * 2, refcheck=False)
+ *                 nvs_arr.resize(1, len(nvs_arr) * 2, refcheck=False)             # <<<<<<<<<<<<<<
  *                 nrs = nrs_arr
  *                 nvs = nvs_arr
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_nvs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_nvs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_nvs); 
-        __pyx_t_9 = PyInt_FromSsize_t((__pyx_t_1 * 2)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L1_error)
+        __pyx_t_22 = PyObject_Length(__pyx_v_nvs_arr); if (unlikely(__pyx_t_22 == ((Py_ssize_t)-1))) __PYX_ERR(0, 107, __pyx_L1_error)
+        __pyx_t_9 = PyInt_FromSsize_t((__pyx_t_22 * 2)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 107, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L1_error)
+        __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 107, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_INCREF(__pyx_int_1);
         __Pyx_GIVEREF(__pyx_int_1);
@@ -4228,75 +4225,75 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
         __Pyx_GIVEREF(__pyx_t_9);
         PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_9);
         __pyx_t_9 = 0;
-        __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 107, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
-        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 109, __pyx_L1_error)
+        if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 107, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 107, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-        /* "rle.pyx":110
- *                 nrs_arr.resize(1, len(nrs) * 2, refcheck=False)
- *                 nvs_arr.resize(1, len(nvs) * 2, refcheck=False)
+        /* "rle.pyx":108
+ *                 nrs_arr.resize(1, len(nrs_arr) * 2, refcheck=False)
+ *                 nvs_arr.resize(1, len(nvs_arr) * 2, refcheck=False)
  *                 nrs = nrs_arr             # <<<<<<<<<<<<<<
  *                 nvs = nvs_arr
  * 
  */
         __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_long(__pyx_v_nrs_arr);
-        if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 110, __pyx_L1_error)
+        if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 108, __pyx_L1_error)
         __PYX_XDEC_MEMVIEW(&__pyx_v_nrs, 1);
         __pyx_v_nrs = __pyx_t_10;
         __pyx_t_10.memview = NULL;
         __pyx_t_10.data = NULL;
 
-        /* "rle.pyx":111
- *                 nvs_arr.resize(1, len(nvs) * 2, refcheck=False)
+        /* "rle.pyx":109
+ *                 nvs_arr.resize(1, len(nvs_arr) * 2, refcheck=False)
  *                 nrs = nrs_arr
  *                 nvs = nvs_arr             # <<<<<<<<<<<<<<
  * 
  *                 nrs[xn] = nr
  */
         __pyx_t_11 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_v_nvs_arr);
-        if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 111, __pyx_L1_error)
+        if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 109, __pyx_L1_error)
         __PYX_XDEC_MEMVIEW(&__pyx_v_nvs, 1);
         __pyx_v_nvs = __pyx_t_11;
         __pyx_t_11.memview = NULL;
         __pyx_t_11.data = NULL;
 
-        /* "rle.pyx":113
+        /* "rle.pyx":111
  *                 nvs = nvs_arr
  * 
  *                 nrs[xn] = nr             # <<<<<<<<<<<<<<
  *                 nvs[xn] = nv
  * 
  */
-        __pyx_t_24 = __pyx_v_xn;
-        *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_24)) )) = __pyx_v_nr;
+        __pyx_t_25 = __pyx_v_xn;
+        *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_25)) )) = __pyx_v_nr;
 
-        /* "rle.pyx":114
+        /* "rle.pyx":112
  * 
  *                 nrs[xn] = nr
  *                 nvs[xn] = nv             # <<<<<<<<<<<<<<
  * 
  *     # Here we unwind the rest of the values that were not added because one Rle was longer than the other.
  */
-        __pyx_t_25 = __pyx_v_xn;
-        *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_25)) )) = __pyx_v_nv;
+        __pyx_t_26 = __pyx_v_xn;
+        *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_26)) )) = __pyx_v_nv;
       }
       __pyx_L13:;
     }
     __pyx_L12:;
   }
 
-  /* "rle.pyx":118
+  /* "rle.pyx":116
  *     # Here we unwind the rest of the values that were not added because one Rle was longer than the other.
  *     # (If other had largest sum of lengths.)
  *     if x1 == l1 and not x2 == l2:             # <<<<<<<<<<<<<<
- *         if not (xn + (l2 - x2) + 1 < len(nvs)):
- *             nvs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
+ *         if not (xn + (l2 - x2) + 1 < len(nvs_arr)):
+ *             nvs_arr.resize((len(nvs_arr) + (l2 - x2) + 1), refcheck=False)
  */
   __pyx_t_13 = ((__pyx_v_x1 == __pyx_v_l1) != 0);
   if (__pyx_t_13) {
@@ -4309,109 +4306,109 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   __pyx_L15_bool_binop_done:;
   if (__pyx_t_12) {
 
-    /* "rle.pyx":119
+    /* "rle.pyx":117
  *     # (If other had largest sum of lengths.)
  *     if x1 == l1 and not x2 == l2:
- *         if not (xn + (l2 - x2) + 1 < len(nvs)):             # <<<<<<<<<<<<<<
- *             nvs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
- *             nrs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
+ *         if not (xn + (l2 - x2) + 1 < len(nvs_arr)):             # <<<<<<<<<<<<<<
+ *             nvs_arr.resize((len(nvs_arr) + (l2 - x2) + 1), refcheck=False)
+ *             nrs_arr.resize((len(nrs_arr) + (l2 - x2) + 1), refcheck=False)
  */
-    __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_nvs); 
-    __pyx_t_12 = ((!((((__pyx_v_xn + (__pyx_v_l2 - __pyx_v_x2)) + 1) < __pyx_t_1) != 0)) != 0);
+    __pyx_t_22 = PyObject_Length(__pyx_v_nvs_arr); if (unlikely(__pyx_t_22 == ((Py_ssize_t)-1))) __PYX_ERR(0, 117, __pyx_L1_error)
+    __pyx_t_12 = ((!((((__pyx_v_xn + (__pyx_v_l2 - __pyx_v_x2)) + 1) < __pyx_t_22) != 0)) != 0);
     if (__pyx_t_12) {
 
-      /* "rle.pyx":120
+      /* "rle.pyx":118
  *     if x1 == l1 and not x2 == l2:
- *         if not (xn + (l2 - x2) + 1 < len(nvs)):
- *             nvs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)             # <<<<<<<<<<<<<<
- *             nrs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
+ *         if not (xn + (l2 - x2) + 1 < len(nvs_arr)):
+ *             nvs_arr.resize((len(nvs_arr) + (l2 - x2) + 1), refcheck=False)             # <<<<<<<<<<<<<<
+ *             nrs_arr.resize((len(nrs_arr) + (l2 - x2) + 1), refcheck=False)
  *             nrs = nrs_arr
  */
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_nvs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 120, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_nvs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_nvs); 
-      __pyx_t_9 = PyInt_FromSsize_t(((__pyx_t_1 + (__pyx_v_l2 - __pyx_v_x2)) + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 120, __pyx_L1_error)
+      __pyx_t_22 = PyObject_Length(__pyx_v_nvs_arr); if (unlikely(__pyx_t_22 == ((Py_ssize_t)-1))) __PYX_ERR(0, 118, __pyx_L1_error)
+      __pyx_t_9 = PyInt_FromSsize_t(((__pyx_t_22 + (__pyx_v_l2 - __pyx_v_x2)) + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 120, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_9);
       __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 120, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 120, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 118, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 118, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "rle.pyx":121
- *         if not (xn + (l2 - x2) + 1 < len(nvs)):
- *             nvs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
- *             nrs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)             # <<<<<<<<<<<<<<
+      /* "rle.pyx":119
+ *         if not (xn + (l2 - x2) + 1 < len(nvs_arr)):
+ *             nvs_arr.resize((len(nvs_arr) + (l2 - x2) + 1), refcheck=False)
+ *             nrs_arr.resize((len(nrs_arr) + (l2 - x2) + 1), refcheck=False)             # <<<<<<<<<<<<<<
  *             nrs = nrs_arr
  *             nvs = nvs_arr
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_nrs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_nrs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 119, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_nvs); 
-      __pyx_t_9 = PyInt_FromSsize_t(((__pyx_t_1 + (__pyx_v_l2 - __pyx_v_x2)) + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_22 = PyObject_Length(__pyx_v_nrs_arr); if (unlikely(__pyx_t_22 == ((Py_ssize_t)-1))) __PYX_ERR(0, 119, __pyx_L1_error)
+      __pyx_t_9 = PyInt_FromSsize_t(((__pyx_t_22 + (__pyx_v_l2 - __pyx_v_x2)) + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 119, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 119, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_9);
       __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 119, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 121, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 119, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "rle.pyx":122
- *             nvs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
- *             nrs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
+      /* "rle.pyx":120
+ *             nvs_arr.resize((len(nvs_arr) + (l2 - x2) + 1), refcheck=False)
+ *             nrs_arr.resize((len(nrs_arr) + (l2 - x2) + 1), refcheck=False)
  *             nrs = nrs_arr             # <<<<<<<<<<<<<<
  *             nvs = nvs_arr
  * 
  */
       __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_long(__pyx_v_nrs_arr);
-      if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 122, __pyx_L1_error)
+      if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 120, __pyx_L1_error)
       __PYX_XDEC_MEMVIEW(&__pyx_v_nrs, 1);
       __pyx_v_nrs = __pyx_t_10;
       __pyx_t_10.memview = NULL;
       __pyx_t_10.data = NULL;
 
-      /* "rle.pyx":123
- *             nrs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
+      /* "rle.pyx":121
+ *             nrs_arr.resize((len(nrs_arr) + (l2 - x2) + 1), refcheck=False)
  *             nrs = nrs_arr
  *             nvs = nvs_arr             # <<<<<<<<<<<<<<
  * 
  *         # Have some values left in one rl from the previous comparison
  */
       __pyx_t_11 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_v_nvs_arr);
-      if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 123, __pyx_L1_error)
+      if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 121, __pyx_L1_error)
       __PYX_XDEC_MEMVIEW(&__pyx_v_nvs, 1);
       __pyx_v_nvs = __pyx_t_11;
       __pyx_t_11.memview = NULL;
       __pyx_t_11.data = NULL;
 
-      /* "rle.pyx":119
+      /* "rle.pyx":117
  *     # (If other had largest sum of lengths.)
  *     if x1 == l1 and not x2 == l2:
- *         if not (xn + (l2 - x2) + 1 < len(nvs)):             # <<<<<<<<<<<<<<
- *             nvs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
- *             nrs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
+ *         if not (xn + (l2 - x2) + 1 < len(nvs_arr)):             # <<<<<<<<<<<<<<
+ *             nvs_arr.resize((len(nvs_arr) + (l2 - x2) + 1), refcheck=False)
+ *             nrs_arr.resize((len(nrs_arr) + (l2 - x2) + 1), refcheck=False)
  */
     }
 
-    /* "rle.pyx":127
+    /* "rle.pyx":125
  *         # Have some values left in one rl from the previous comparison
  *         # which must be added before we move on
  *         if diff < 0:             # <<<<<<<<<<<<<<
@@ -4421,28 +4418,28 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     __pyx_t_12 = ((__pyx_v_diff < 0.0) != 0);
     if (__pyx_t_12) {
 
-      /* "rle.pyx":128
+      /* "rle.pyx":126
  *         # which must be added before we move on
  *         if diff < 0:
  *             nrs[xn] = r2             # <<<<<<<<<<<<<<
  *             nvs[xn] -= values2[x2]
  *             xn += 1
  */
-      __pyx_t_26 = __pyx_v_xn;
-      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_26)) )) = __pyx_v_r2;
+      __pyx_t_27 = __pyx_v_xn;
+      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_27)) )) = __pyx_v_r2;
 
-      /* "rle.pyx":129
+      /* "rle.pyx":127
  *         if diff < 0:
  *             nrs[xn] = r2
  *             nvs[xn] -= values2[x2]             # <<<<<<<<<<<<<<
  *             xn += 1
  *             x2 += 1
  */
-      __pyx_t_27 = __pyx_v_x2;
-      __pyx_t_28 = __pyx_v_xn;
-      *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_28)) )) -= (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values2.data) + __pyx_t_27)) )));
+      __pyx_t_28 = __pyx_v_x2;
+      __pyx_t_29 = __pyx_v_xn;
+      *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_29)) )) -= (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values2.data) + __pyx_t_28)) )));
 
-      /* "rle.pyx":130
+      /* "rle.pyx":128
  *             nrs[xn] = r2
  *             nvs[xn] -= values2[x2]
  *             xn += 1             # <<<<<<<<<<<<<<
@@ -4451,7 +4448,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_xn = (__pyx_v_xn + 1);
 
-      /* "rle.pyx":131
+      /* "rle.pyx":129
  *             nvs[xn] -= values2[x2]
  *             xn += 1
  *             x2 += 1             # <<<<<<<<<<<<<<
@@ -4460,7 +4457,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_x2 = (__pyx_v_x2 + 1);
 
-      /* "rle.pyx":127
+      /* "rle.pyx":125
  *         # Have some values left in one rl from the previous comparison
  *         # which must be added before we move on
  *         if diff < 0:             # <<<<<<<<<<<<<<
@@ -4469,29 +4466,29 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
     }
 
-    /* "rle.pyx":133
+    /* "rle.pyx":131
  *             x2 += 1
  *         # if the new value is same as the old, merge
  *         if 0 - values2[x2] == nv:             # <<<<<<<<<<<<<<
  *             nrs[xn - 1] += runs2[x2]
  *             x2 += 1
  */
-    __pyx_t_29 = __pyx_v_x2;
-    __pyx_t_12 = (((0.0 - (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values2.data) + __pyx_t_29)) )))) == __pyx_v_nv) != 0);
+    __pyx_t_30 = __pyx_v_x2;
+    __pyx_t_12 = (((0.0 - (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values2.data) + __pyx_t_30)) )))) == __pyx_v_nv) != 0);
     if (__pyx_t_12) {
 
-      /* "rle.pyx":134
+      /* "rle.pyx":132
  *         # if the new value is same as the old, merge
  *         if 0 - values2[x2] == nv:
  *             nrs[xn - 1] += runs2[x2]             # <<<<<<<<<<<<<<
  *             x2 += 1
  *         # now the unwinding; add all the values missing from one Rle
  */
-      __pyx_t_30 = __pyx_v_x2;
-      __pyx_t_31 = (__pyx_v_xn - 1);
-      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_31)) )) += (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs2.data) + __pyx_t_30)) )));
+      __pyx_t_31 = __pyx_v_x2;
+      __pyx_t_32 = (__pyx_v_xn - 1);
+      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_32)) )) += (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs2.data) + __pyx_t_31)) )));
 
-      /* "rle.pyx":135
+      /* "rle.pyx":133
  *         if 0 - values2[x2] == nv:
  *             nrs[xn - 1] += runs2[x2]
  *             x2 += 1             # <<<<<<<<<<<<<<
@@ -4500,7 +4497,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_x2 = (__pyx_v_x2 + 1);
 
-      /* "rle.pyx":133
+      /* "rle.pyx":131
  *             x2 += 1
  *         # if the new value is same as the old, merge
  *         if 0 - values2[x2] == nv:             # <<<<<<<<<<<<<<
@@ -4509,40 +4506,40 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
     }
 
-    /* "rle.pyx":137
+    /* "rle.pyx":135
  *             x2 += 1
  *         # now the unwinding; add all the values missing from one Rle
  *         for i in range(x2, l2):             # <<<<<<<<<<<<<<
  *             nrs[xn] = runs2[i]
  *             nvs[xn] -= values2[i]
  */
-    __pyx_t_32 = __pyx_v_l2;
-    for (__pyx_t_33 = __pyx_v_x2; __pyx_t_33 < __pyx_t_32; __pyx_t_33+=1) {
-      __pyx_v_i = __pyx_t_33;
+    __pyx_t_33 = __pyx_v_l2;
+    for (__pyx_t_34 = __pyx_v_x2; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
+      __pyx_v_i = __pyx_t_34;
 
-      /* "rle.pyx":138
+      /* "rle.pyx":136
  *         # now the unwinding; add all the values missing from one Rle
  *         for i in range(x2, l2):
  *             nrs[xn] = runs2[i]             # <<<<<<<<<<<<<<
  *             nvs[xn] -= values2[i]
  *             xn += 1
  */
-      __pyx_t_34 = __pyx_v_i;
-      __pyx_t_35 = __pyx_v_xn;
-      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_35)) )) = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs2.data) + __pyx_t_34)) )));
+      __pyx_t_35 = __pyx_v_i;
+      __pyx_t_36 = __pyx_v_xn;
+      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_36)) )) = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs2.data) + __pyx_t_35)) )));
 
-      /* "rle.pyx":139
+      /* "rle.pyx":137
  *         for i in range(x2, l2):
  *             nrs[xn] = runs2[i]
  *             nvs[xn] -= values2[i]             # <<<<<<<<<<<<<<
  *             xn += 1
  *     # (If self had largest sum of lengths)
  */
-      __pyx_t_36 = __pyx_v_i;
-      __pyx_t_37 = __pyx_v_xn;
-      *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_37)) )) -= (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values2.data) + __pyx_t_36)) )));
+      __pyx_t_37 = __pyx_v_i;
+      __pyx_t_38 = __pyx_v_xn;
+      *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_38)) )) -= (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values2.data) + __pyx_t_37)) )));
 
-      /* "rle.pyx":140
+      /* "rle.pyx":138
  *             nrs[xn] = runs2[i]
  *             nvs[xn] -= values2[i]
  *             xn += 1             # <<<<<<<<<<<<<<
@@ -4552,22 +4549,22 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       __pyx_v_xn = (__pyx_v_xn + 1);
     }
 
-    /* "rle.pyx":118
+    /* "rle.pyx":116
  *     # Here we unwind the rest of the values that were not added because one Rle was longer than the other.
  *     # (If other had largest sum of lengths.)
  *     if x1 == l1 and not x2 == l2:             # <<<<<<<<<<<<<<
- *         if not (xn + (l2 - x2) + 1 < len(nvs)):
- *             nvs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
+ *         if not (xn + (l2 - x2) + 1 < len(nvs_arr)):
+ *             nvs_arr.resize((len(nvs_arr) + (l2 - x2) + 1), refcheck=False)
  */
     goto __pyx_L14;
   }
 
-  /* "rle.pyx":142
+  /* "rle.pyx":140
  *             xn += 1
  *     # (If self had largest sum of lengths)
  *     elif x2 == l2 and not x1 == l1:             # <<<<<<<<<<<<<<
- *         if not (xn + (l1 - x1) + 1 < len(nvs)) and diff > 0:
- *             nvs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
+ *         if not (xn + (l1 - x1) + 1 < len(nvs_arr)) and diff > 0:
+ *             nvs_arr.resize(len(nvs_arr) + (l1 - x1) + 1, refcheck=False)
  */
   __pyx_t_13 = ((__pyx_v_x2 == __pyx_v_l2) != 0);
   if (__pyx_t_13) {
@@ -4580,15 +4577,15 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   __pyx_L22_bool_binop_done:;
   if (__pyx_t_12) {
 
-    /* "rle.pyx":143
+    /* "rle.pyx":141
  *     # (If self had largest sum of lengths)
  *     elif x2 == l2 and not x1 == l1:
- *         if not (xn + (l1 - x1) + 1 < len(nvs)) and diff > 0:             # <<<<<<<<<<<<<<
- *             nvs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
- *             nrs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
+ *         if not (xn + (l1 - x1) + 1 < len(nvs_arr)) and diff > 0:             # <<<<<<<<<<<<<<
+ *             nvs_arr.resize(len(nvs_arr) + (l1 - x1) + 1, refcheck=False)
+ *             nrs_arr.resize(len(nrs_arr) + (l1 - x1) + 1, refcheck=False)
  */
-    __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_nvs); 
-    __pyx_t_13 = ((!((((__pyx_v_xn + (__pyx_v_l1 - __pyx_v_x1)) + 1) < __pyx_t_1) != 0)) != 0);
+    __pyx_t_22 = PyObject_Length(__pyx_v_nvs_arr); if (unlikely(__pyx_t_22 == ((Py_ssize_t)-1))) __PYX_ERR(0, 141, __pyx_L1_error)
+    __pyx_t_13 = ((!((((__pyx_v_xn + (__pyx_v_l1 - __pyx_v_x1)) + 1) < __pyx_t_22) != 0)) != 0);
     if (__pyx_t_13) {
     } else {
       __pyx_t_12 = __pyx_t_13;
@@ -4599,98 +4596,98 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     __pyx_L25_bool_binop_done:;
     if (__pyx_t_12) {
 
-      /* "rle.pyx":144
+      /* "rle.pyx":142
  *     elif x2 == l2 and not x1 == l1:
- *         if not (xn + (l1 - x1) + 1 < len(nvs)) and diff > 0:
- *             nvs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)             # <<<<<<<<<<<<<<
- *             nrs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
+ *         if not (xn + (l1 - x1) + 1 < len(nvs_arr)) and diff > 0:
+ *             nvs_arr.resize(len(nvs_arr) + (l1 - x1) + 1, refcheck=False)             # <<<<<<<<<<<<<<
+ *             nrs_arr.resize(len(nrs_arr) + (l1 - x1) + 1, refcheck=False)
  *             nrs = nrs_arr
  */
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_nvs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 144, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_nvs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 142, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_nvs); 
-      __pyx_t_9 = PyInt_FromSsize_t(((__pyx_t_1 + (__pyx_v_l1 - __pyx_v_x1)) + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 144, __pyx_L1_error)
+      __pyx_t_22 = PyObject_Length(__pyx_v_nvs_arr); if (unlikely(__pyx_t_22 == ((Py_ssize_t)-1))) __PYX_ERR(0, 142, __pyx_L1_error)
+      __pyx_t_9 = PyInt_FromSsize_t(((__pyx_t_22 + (__pyx_v_l1 - __pyx_v_x1)) + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 142, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 144, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 142, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_9);
       __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 144, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 142, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 144, __pyx_L1_error)
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 144, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "rle.pyx":145
- *         if not (xn + (l1 - x1) + 1 < len(nvs)) and diff > 0:
- *             nvs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
- *             nrs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)             # <<<<<<<<<<<<<<
+      /* "rle.pyx":143
+ *         if not (xn + (l1 - x1) + 1 < len(nvs_arr)) and diff > 0:
+ *             nvs_arr.resize(len(nvs_arr) + (l1 - x1) + 1, refcheck=False)
+ *             nrs_arr.resize(len(nrs_arr) + (l1 - x1) + 1, refcheck=False)             # <<<<<<<<<<<<<<
  *             nrs = nrs_arr
  *             nvs = nvs_arr
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_nrs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_nrs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 143, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = __Pyx_MemoryView_Len(__pyx_v_nvs); 
-      __pyx_t_9 = PyInt_FromSsize_t(((__pyx_t_1 + (__pyx_v_l1 - __pyx_v_x1)) + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 145, __pyx_L1_error)
+      __pyx_t_22 = PyObject_Length(__pyx_v_nrs_arr); if (unlikely(__pyx_t_22 == ((Py_ssize_t)-1))) __PYX_ERR(0, 143, __pyx_L1_error)
+      __pyx_t_9 = PyInt_FromSsize_t(((__pyx_t_22 + (__pyx_v_l1 - __pyx_v_x1)) + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 143, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 145, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 143, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_9);
       __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 145, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 143, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 145, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 143, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 143, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "rle.pyx":146
- *             nvs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
- *             nrs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
+      /* "rle.pyx":144
+ *             nvs_arr.resize(len(nvs_arr) + (l1 - x1) + 1, refcheck=False)
+ *             nrs_arr.resize(len(nrs_arr) + (l1 - x1) + 1, refcheck=False)
  *             nrs = nrs_arr             # <<<<<<<<<<<<<<
  *             nvs = nvs_arr
  * 
  */
       __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_long(__pyx_v_nrs_arr);
-      if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 146, __pyx_L1_error)
+      if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 144, __pyx_L1_error)
       __PYX_XDEC_MEMVIEW(&__pyx_v_nrs, 1);
       __pyx_v_nrs = __pyx_t_10;
       __pyx_t_10.memview = NULL;
       __pyx_t_10.data = NULL;
 
-      /* "rle.pyx":147
- *             nrs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
+      /* "rle.pyx":145
+ *             nrs_arr.resize(len(nrs_arr) + (l1 - x1) + 1, refcheck=False)
  *             nrs = nrs_arr
  *             nvs = nvs_arr             # <<<<<<<<<<<<<<
  * 
  *         if diff > 0:
  */
       __pyx_t_11 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_v_nvs_arr);
-      if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 147, __pyx_L1_error)
+      if (unlikely(!__pyx_t_11.memview)) __PYX_ERR(0, 145, __pyx_L1_error)
       __PYX_XDEC_MEMVIEW(&__pyx_v_nvs, 1);
       __pyx_v_nvs = __pyx_t_11;
       __pyx_t_11.memview = NULL;
       __pyx_t_11.data = NULL;
 
-      /* "rle.pyx":143
+      /* "rle.pyx":141
  *     # (If self had largest sum of lengths)
  *     elif x2 == l2 and not x1 == l1:
- *         if not (xn + (l1 - x1) + 1 < len(nvs)) and diff > 0:             # <<<<<<<<<<<<<<
- *             nvs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
- *             nrs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
+ *         if not (xn + (l1 - x1) + 1 < len(nvs_arr)) and diff > 0:             # <<<<<<<<<<<<<<
+ *             nvs_arr.resize(len(nvs_arr) + (l1 - x1) + 1, refcheck=False)
+ *             nrs_arr.resize(len(nrs_arr) + (l1 - x1) + 1, refcheck=False)
  */
     }
 
-    /* "rle.pyx":149
+    /* "rle.pyx":147
  *             nvs = nvs_arr
  * 
  *         if diff > 0:             # <<<<<<<<<<<<<<
@@ -4700,28 +4697,28 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
     __pyx_t_12 = ((__pyx_v_diff > 0.0) != 0);
     if (__pyx_t_12) {
 
-      /* "rle.pyx":150
+      /* "rle.pyx":148
  * 
  *         if diff > 0:
  *             nrs[xn] = r1             # <<<<<<<<<<<<<<
  *             nvs[xn] += values1[x1]
  *             xn += 1
  */
-      __pyx_t_38 = __pyx_v_xn;
-      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_38)) )) = __pyx_v_r1;
+      __pyx_t_39 = __pyx_v_xn;
+      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_39)) )) = __pyx_v_r1;
 
-      /* "rle.pyx":151
+      /* "rle.pyx":149
  *         if diff > 0:
  *             nrs[xn] = r1
  *             nvs[xn] += values1[x1]             # <<<<<<<<<<<<<<
  *             xn += 1
  *             x1 += 1
  */
-      __pyx_t_39 = __pyx_v_x1;
-      __pyx_t_40 = __pyx_v_xn;
-      *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_40)) )) += (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values1.data) + __pyx_t_39)) )));
+      __pyx_t_40 = __pyx_v_x1;
+      __pyx_t_41 = __pyx_v_xn;
+      *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_41)) )) += (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values1.data) + __pyx_t_40)) )));
 
-      /* "rle.pyx":152
+      /* "rle.pyx":150
  *             nrs[xn] = r1
  *             nvs[xn] += values1[x1]
  *             xn += 1             # <<<<<<<<<<<<<<
@@ -4730,7 +4727,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_xn = (__pyx_v_xn + 1);
 
-      /* "rle.pyx":153
+      /* "rle.pyx":151
  *             nvs[xn] += values1[x1]
  *             xn += 1
  *             x1 += 1             # <<<<<<<<<<<<<<
@@ -4739,7 +4736,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_x1 = (__pyx_v_x1 + 1);
 
-      /* "rle.pyx":149
+      /* "rle.pyx":147
  *             nvs = nvs_arr
  * 
  *         if diff > 0:             # <<<<<<<<<<<<<<
@@ -4748,30 +4745,30 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
     }
 
-    /* "rle.pyx":155
+    /* "rle.pyx":153
  *             x1 += 1
  * 
  *         if values1[x1] == nvs[xn - 1]:             # <<<<<<<<<<<<<<
  *             nrs[xn - 1] += runs1[x1]
  *             x1 += 1
  */
-    __pyx_t_41 = __pyx_v_x1;
-    __pyx_t_42 = (__pyx_v_xn - 1);
-    __pyx_t_12 = (((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values1.data) + __pyx_t_41)) ))) == (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_42)) )))) != 0);
+    __pyx_t_42 = __pyx_v_x1;
+    __pyx_t_43 = (__pyx_v_xn - 1);
+    __pyx_t_12 = (((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values1.data) + __pyx_t_42)) ))) == (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_43)) )))) != 0);
     if (__pyx_t_12) {
 
-      /* "rle.pyx":156
+      /* "rle.pyx":154
  * 
  *         if values1[x1] == nvs[xn - 1]:
  *             nrs[xn - 1] += runs1[x1]             # <<<<<<<<<<<<<<
  *             x1 += 1
  * 
  */
-      __pyx_t_43 = __pyx_v_x1;
-      __pyx_t_44 = (__pyx_v_xn - 1);
-      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_44)) )) += (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs1.data) + __pyx_t_43)) )));
+      __pyx_t_44 = __pyx_v_x1;
+      __pyx_t_45 = (__pyx_v_xn - 1);
+      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_45)) )) += (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs1.data) + __pyx_t_44)) )));
 
-      /* "rle.pyx":157
+      /* "rle.pyx":155
  *         if values1[x1] == nvs[xn - 1]:
  *             nrs[xn - 1] += runs1[x1]
  *             x1 += 1             # <<<<<<<<<<<<<<
@@ -4780,7 +4777,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
       __pyx_v_x1 = (__pyx_v_x1 + 1);
 
-      /* "rle.pyx":155
+      /* "rle.pyx":153
  *             x1 += 1
  * 
  *         if values1[x1] == nvs[xn - 1]:             # <<<<<<<<<<<<<<
@@ -4789,40 +4786,40 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
  */
     }
 
-    /* "rle.pyx":159
+    /* "rle.pyx":157
  *             x1 += 1
  * 
  *         for i in range(x1, l1):             # <<<<<<<<<<<<<<
  *             nrs[xn] = runs1[i]
  *             nvs[xn] = values1[i]
  */
-    __pyx_t_32 = __pyx_v_l1;
-    for (__pyx_t_33 = __pyx_v_x1; __pyx_t_33 < __pyx_t_32; __pyx_t_33+=1) {
-      __pyx_v_i = __pyx_t_33;
+    __pyx_t_33 = __pyx_v_l1;
+    for (__pyx_t_34 = __pyx_v_x1; __pyx_t_34 < __pyx_t_33; __pyx_t_34+=1) {
+      __pyx_v_i = __pyx_t_34;
 
-      /* "rle.pyx":160
+      /* "rle.pyx":158
  * 
  *         for i in range(x1, l1):
  *             nrs[xn] = runs1[i]             # <<<<<<<<<<<<<<
  *             nvs[xn] = values1[i]
  *             xn += 1
  */
-      __pyx_t_45 = __pyx_v_i;
-      __pyx_t_46 = __pyx_v_xn;
-      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_46)) )) = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs1.data) + __pyx_t_45)) )));
+      __pyx_t_46 = __pyx_v_i;
+      __pyx_t_47 = __pyx_v_xn;
+      *((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_nrs.data) + __pyx_t_47)) )) = (*((long *) ( /* dim=0 */ ((char *) (((long *) __pyx_v_runs1.data) + __pyx_t_46)) )));
 
-      /* "rle.pyx":161
+      /* "rle.pyx":159
  *         for i in range(x1, l1):
  *             nrs[xn] = runs1[i]
  *             nvs[xn] = values1[i]             # <<<<<<<<<<<<<<
  *             xn += 1
  * 
  */
-      __pyx_t_47 = __pyx_v_i;
-      __pyx_t_48 = __pyx_v_xn;
-      *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_48)) )) = (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values1.data) + __pyx_t_47)) )));
+      __pyx_t_48 = __pyx_v_i;
+      __pyx_t_49 = __pyx_v_xn;
+      *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_nvs.data) + __pyx_t_49)) )) = (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_values1.data) + __pyx_t_48)) )));
 
-      /* "rle.pyx":162
+      /* "rle.pyx":160
  *             nrs[xn] = runs1[i]
  *             nvs[xn] = values1[i]
  *             xn += 1             # <<<<<<<<<<<<<<
@@ -4832,78 +4829,78 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       __pyx_v_xn = (__pyx_v_xn + 1);
     }
 
-    /* "rle.pyx":142
+    /* "rle.pyx":140
  *             xn += 1
  *     # (If self had largest sum of lengths)
  *     elif x2 == l2 and not x1 == l1:             # <<<<<<<<<<<<<<
- *         if not (xn + (l1 - x1) + 1 < len(nvs)) and diff > 0:
- *             nvs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
+ *         if not (xn + (l1 - x1) + 1 < len(nvs_arr)) and diff > 0:
+ *             nvs_arr.resize(len(nvs_arr) + (l1 - x1) + 1, refcheck=False)
  */
   }
   __pyx_L14:;
 
-  /* "rle.pyx":165
+  /* "rle.pyx":163
  * 
  *     # Must use resize because initial guess for array was likely way too large
  *     nrs_arr.resize(xn, refcheck=False)             # <<<<<<<<<<<<<<
  *     nvs_arr.resize(xn, refcheck=False)
  * 
  */
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_nrs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_nrs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_xn); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_xn); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_GIVEREF(__pyx_t_9);
   PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_9);
   __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 165, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 165, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 163, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "rle.pyx":166
+  /* "rle.pyx":164
  *     # Must use resize because initial guess for array was likely way too large
  *     nrs_arr.resize(xn, refcheck=False)
  *     nvs_arr.resize(xn, refcheck=False)             # <<<<<<<<<<<<<<
  * 
  *     return Rle(nrs_arr, nvs_arr)
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_nvs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_nvs_arr, __pyx_n_s_resize); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 164, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_xn); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_xn); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 164, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 164, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_GIVEREF(__pyx_t_9);
   PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_9);
   __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 164, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
-  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 166, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_9, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 164, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "rle.pyx":168
+  /* "rle.pyx":166
  *     nvs_arr.resize(xn, refcheck=False)
  * 
  *     return Rle(nrs_arr, nvs_arr)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_Rle); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_GetModuleGlobalName(__pyx_n_s_Rle); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_7 = NULL;
-  __pyx_t_32 = 0;
+  __pyx_t_33 = 0;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_9))) {
     __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_9);
     if (likely(__pyx_t_7)) {
@@ -4911,13 +4908,13 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
       __Pyx_INCREF(__pyx_t_7);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_9, function);
-      __pyx_t_32 = 1;
+      __pyx_t_33 = 1;
     }
   }
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_v_nrs_arr, __pyx_v_nvs_arr};
-    __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_32, 2+__pyx_t_32); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_33, 2+__pyx_t_33); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_8);
   } else
@@ -4925,24 +4922,24 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_v_nrs_arr, __pyx_v_nvs_arr};
-    __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_32, 2+__pyx_t_32); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_33, 2+__pyx_t_33); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_8);
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_33); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_7) {
       __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_7); __pyx_t_7 = NULL;
     }
     __Pyx_INCREF(__pyx_v_nrs_arr);
     __Pyx_GIVEREF(__pyx_v_nrs_arr);
-    PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_32, __pyx_v_nrs_arr);
+    PyTuple_SET_ITEM(__pyx_t_4, 0+__pyx_t_33, __pyx_v_nrs_arr);
     __Pyx_INCREF(__pyx_v_nvs_arr);
     __Pyx_GIVEREF(__pyx_v_nvs_arr);
-    PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_32, __pyx_v_nvs_arr);
-    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 168, __pyx_L1_error)
+    PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_33, __pyx_v_nvs_arr);
+    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_4, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -4951,7 +4948,7 @@ static PyObject *__pyx_f_3rle_sub_rles(__Pyx_memviewslice __pyx_v_runs1, __Pyx_m
   __pyx_t_8 = 0;
   goto __pyx_L0;
 
-  /* "rle.pyx":52
+  /* "rle.pyx":50
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cpdef sub_rles(long [::1] runs1, double [::1] values1, long [::1] runs2, double [::1] values2):             # <<<<<<<<<<<<<<
@@ -5017,23 +5014,23 @@ static PyObject *__pyx_pw_3rle_1sub_rles(PyObject *__pyx_self, PyObject *__pyx_a
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_values1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sub_rles", 1, 4, 4, 1); __PYX_ERR(0, 52, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sub_rles", 1, 4, 4, 1); __PYX_ERR(0, 50, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_runs2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sub_rles", 1, 4, 4, 2); __PYX_ERR(0, 52, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sub_rles", 1, 4, 4, 2); __PYX_ERR(0, 50, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_values2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sub_rles", 1, 4, 4, 3); __PYX_ERR(0, 52, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sub_rles", 1, 4, 4, 3); __PYX_ERR(0, 50, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sub_rles") < 0)) __PYX_ERR(0, 52, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sub_rles") < 0)) __PYX_ERR(0, 50, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -5043,14 +5040,14 @@ static PyObject *__pyx_pw_3rle_1sub_rles(PyObject *__pyx_self, PyObject *__pyx_a
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
     }
-    __pyx_v_runs1 = __Pyx_PyObject_to_MemoryviewSlice_dc_long(values[0]); if (unlikely(!__pyx_v_runs1.memview)) __PYX_ERR(0, 52, __pyx_L3_error)
-    __pyx_v_values1 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[1]); if (unlikely(!__pyx_v_values1.memview)) __PYX_ERR(0, 52, __pyx_L3_error)
-    __pyx_v_runs2 = __Pyx_PyObject_to_MemoryviewSlice_dc_long(values[2]); if (unlikely(!__pyx_v_runs2.memview)) __PYX_ERR(0, 52, __pyx_L3_error)
-    __pyx_v_values2 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[3]); if (unlikely(!__pyx_v_values2.memview)) __PYX_ERR(0, 52, __pyx_L3_error)
+    __pyx_v_runs1 = __Pyx_PyObject_to_MemoryviewSlice_dc_long(values[0]); if (unlikely(!__pyx_v_runs1.memview)) __PYX_ERR(0, 50, __pyx_L3_error)
+    __pyx_v_values1 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[1]); if (unlikely(!__pyx_v_values1.memview)) __PYX_ERR(0, 50, __pyx_L3_error)
+    __pyx_v_runs2 = __Pyx_PyObject_to_MemoryviewSlice_dc_long(values[2]); if (unlikely(!__pyx_v_runs2.memview)) __PYX_ERR(0, 50, __pyx_L3_error)
+    __pyx_v_values2 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(values[3]); if (unlikely(!__pyx_v_values2.memview)) __PYX_ERR(0, 50, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sub_rles", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 52, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sub_rles", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 50, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("rle.sub_rles", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5069,11 +5066,11 @@ static PyObject *__pyx_pf_3rle_sub_rles(CYTHON_UNUSED PyObject *__pyx_self, __Py
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("sub_rles", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_runs1.memview)) { __Pyx_RaiseUnboundLocalError("runs1"); __PYX_ERR(0, 52, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_values1.memview)) { __Pyx_RaiseUnboundLocalError("values1"); __PYX_ERR(0, 52, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_runs2.memview)) { __Pyx_RaiseUnboundLocalError("runs2"); __PYX_ERR(0, 52, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_values2.memview)) { __Pyx_RaiseUnboundLocalError("values2"); __PYX_ERR(0, 52, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_3rle_sub_rles(__pyx_v_runs1, __pyx_v_values1, __pyx_v_runs2, __pyx_v_values2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  if (unlikely(!__pyx_v_runs1.memview)) { __Pyx_RaiseUnboundLocalError("runs1"); __PYX_ERR(0, 50, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_values1.memview)) { __Pyx_RaiseUnboundLocalError("values1"); __PYX_ERR(0, 50, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_runs2.memview)) { __Pyx_RaiseUnboundLocalError("runs2"); __PYX_ERR(0, 50, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_values2.memview)) { __Pyx_RaiseUnboundLocalError("values2"); __PYX_ERR(0, 50, __pyx_L1_error) }
+  __pyx_t_1 = __pyx_f_3rle_sub_rles(__pyx_v_runs1, __pyx_v_values1, __pyx_v_runs2, __pyx_v_values2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -18749,7 +18746,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 135, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 131, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 146, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 149, __pyx_L1_error)
@@ -23246,18 +23243,6 @@ static CYTHON_INLINE int __pyx_memview_set_long(const char *itemp, PyObject *obj
     if ((value == (long)-1) && PyErr_Occurred())
         return 0;
     *(long *) itemp = value;
-    return 1;
-}
-
-/* MemviewDtypeToObject */
-            static CYTHON_INLINE PyObject *__pyx_memview_get_double(const char *itemp) {
-    return (PyObject *) PyFloat_FromDouble(*(double *) itemp);
-}
-static CYTHON_INLINE int __pyx_memview_set_double(const char *itemp, PyObject *obj) {
-    double value = __pyx_PyFloat_AsDouble(obj);
-    if ((value == (double)-1) && PyErr_Occurred())
-        return 0;
-    *(double *) itemp = value;
     return 1;
 }
 

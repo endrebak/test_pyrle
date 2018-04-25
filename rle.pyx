@@ -45,8 +45,6 @@ class Rle:
 
 
 
-
-
 @cython.boundscheck(False)
 @cython.wraparound(False)
 cpdef sub_rles(long [::1] runs1, double [::1] values1, long [::1] runs2, double [::1] values2):
@@ -99,14 +97,14 @@ cpdef sub_rles(long [::1] runs1, double [::1] values1, long [::1] runs2, double 
         if nv == nvs[xn - 1]:
             nrs[xn - 1] += nr
         else:
-            if xn < len(nvs):
+            if xn < len(nvs_arr):
                 nrs[xn] = nr
                 nvs[xn] = nv
                 xn += 1
             # if we have no space left in our old array, double the size
             else:
-                nrs_arr.resize(1, len(nrs) * 2, refcheck=False)
-                nvs_arr.resize(1, len(nvs) * 2, refcheck=False)
+                nrs_arr.resize(1, len(nrs_arr) * 2, refcheck=False)
+                nvs_arr.resize(1, len(nvs_arr) * 2, refcheck=False)
                 nrs = nrs_arr
                 nvs = nvs_arr
 
@@ -116,9 +114,9 @@ cpdef sub_rles(long [::1] runs1, double [::1] values1, long [::1] runs2, double 
     # Here we unwind the rest of the values that were not added because one Rle was longer than the other.
     # (If other had largest sum of lengths.)
     if x1 == l1 and not x2 == l2:
-        if not (xn + (l2 - x2) + 1 < len(nvs)):
-            nvs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
-            nrs_arr.resize((len(nvs) + (l2 - x2) + 1), refcheck=False)
+        if not (xn + (l2 - x2) + 1 < len(nvs_arr)):
+            nvs_arr.resize((len(nvs_arr) + (l2 - x2) + 1), refcheck=False)
+            nrs_arr.resize((len(nrs_arr) + (l2 - x2) + 1), refcheck=False)
             nrs = nrs_arr
             nvs = nvs_arr
 
@@ -140,9 +138,9 @@ cpdef sub_rles(long [::1] runs1, double [::1] values1, long [::1] runs2, double 
             xn += 1
     # (If self had largest sum of lengths)
     elif x2 == l2 and not x1 == l1:
-        if not (xn + (l1 - x1) + 1 < len(nvs)) and diff > 0:
-            nvs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
-            nrs_arr.resize(len(nvs) + (l1 - x1) + 1, refcheck=False)
+        if not (xn + (l1 - x1) + 1 < len(nvs_arr)) and diff > 0:
+            nvs_arr.resize(len(nvs_arr) + (l1 - x1) + 1, refcheck=False)
+            nrs_arr.resize(len(nrs_arr) + (l1 - x1) + 1, refcheck=False)
             nrs = nrs_arr
             nvs = nvs_arr
 
